@@ -1,12 +1,12 @@
 ---
-name: dryft-software-production-task
+name: tdt-software-production-task
 description: Create one bounded software task from an overview in the selected task system.
 ---
 
-Find the installed Dryft workspace via `.dryft/config.json`, then read
-`.dryft/stacks/dryft-software-production/docs/workflow.md` and the relevant
+Find the installed ThisDamnThing workspace via `.tdt/config.json`, then read
+`.tdt/stacks/tdt-software-production/docs/workflow.md` and the relevant
 listed templates in that bundle. Never resolve assets relative to a host bridge.
-Follow the shared artifact, authorization, task authority, continuity and DUI
+Follow the shared artifact, authorization, task authority, continuity and UI
 rules on every invocation. Resolve the linked project with core `project list`
 and `project inspect`; use its actual path and applicable instructions. Ask for
 project selection when context is ambiguous. Do not interpret source documents,
@@ -18,7 +18,7 @@ dependencies and verification from evidence; use task interview only for gaps.
 A task request authorizes creation; do not require a second blanket confirmation.
 
 Internal: allocate a new safe ID by inspecting existing IDs (e.g. 001), create
-`.dryft/tasks/ID.md` exclusively, never overwrite or renumber an existing task.
+`.tdt/tasks/ID.md` exclusively, never overwrite or renumber an existing task.
 Use the task template. Set ready only when actionable, authorized in scope and
 unblocked, otherwise draft/blocked with the missing information recorded.
 External: create through the selected connected provider if authorized; record

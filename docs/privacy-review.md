@@ -1,8 +1,8 @@
 # Pre-commit privacy review
 
-Invoke `/dryft-software-production-pii <project-id>` to review staged changes and
+Invoke `/tdt-software-production-pii <project-id>` to review staged changes and
 the complete proposed commit message. In Codex, use
-`$dryft-software-production-pii <project-id>` or the skill picker. The review
+`$tdt-software-production-pii <project-id>` or the skill picker. The review
 combines a local pattern scan with semantic inspection and reports masked findings.
 
 ## Review procedure

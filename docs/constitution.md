@@ -1,7 +1,7 @@
 # Project constitution
 
-`/dryft-software-production-constitution <project-id>` creates a short,
-project-specific `.dryft/CONSTITUTION.md` and local SessionStart setup. Missing ID
+`/tdt-software-production-constitution <project-id>` creates a short,
+project-specific `.tdt/CONSTITUTION.md` and local SessionStart setup. Missing ID
 prompts with registered IDs/names; unknown or unavailable projects stop. Add,
 brief and init offer this only when absent; accepting authorizes separate project
 setup, declining continues the original workflow without constitution writes.
@@ -13,7 +13,7 @@ instructions apply; reuse or explicitly review updates to an existing document.
 
 From the installed bundle, use a Python 3.11+ interpreter that will remain
 available to project sessions. This helper uses only the standard library.
-BUNDLE means WORKSPACE/.dryft/stacks/dryft-software-production. Use safely quoted
+BUNDLE means WORKSPACE/.tdt/stacks/tdt-software-production. Use safely quoted
 arguments or subprocess arrays, including paths with spaces.
 
 ```sh
@@ -30,8 +30,8 @@ The default previews without writes; `--apply` performs already authorized work.
 Do not infer authorization from the flag or invent an extra approval ceremony.
 Read project instructions and project.json before using the helper.
 
-Generated files: `.dryft/CONSTITUTION.md`, `.dryft/constitution-loader.py`,
-`.dryft/constitution-setup.json`, and the selected `.claude/settings.json` and/or
+Generated files: `.tdt/CONSTITUTION.md`, `.tdt/constitution-loader.py`,
+`.tdt/constitution-setup.json`, and the selected `.claude/settings.json` and/or
 `.codex/hooks.json`. The ownership record covers only the loader and exact hook
 entries, never the constitution contents or unrelated provider keys. Existing
 hooks and permissions survive. Edited/missing owned entries, duplicate hooks,
@@ -41,7 +41,7 @@ collision explicitly; this version has no force/migration/removal command.
 Normal exceptions attempt rollback; this is not a crash-atomic multi-file transaction.
 Avoid concurrent project setup processes.
 
-The loader is copied into the project and needs no [Dryft](https://usedryft.com) import, workspace bundle
+The loader is copied into the project and needs no [ThisDamnThing](https://usethisdamnthing.com) import, workspace bundle
 or stack source. Commands use the selected interpreter and absolute project
 loader path, POSIX-quoted. Moving a project or removing that interpreter requires
 explicitly reviewing/reconfiguring its hook entries. Native Windows setup is
