@@ -1,21 +1,21 @@
 {
   "contract_version": 1,
-  "id": "dryft-software-production",
+  "id": "tdt-software-production",
   "version": "0.2.0",
-  "description": "Briefs, tasks and software delivery in linked projects, with optional core DUI.",
-  "author": "Dryft",
+  "description": "Briefs, tasks and software delivery in linked projects, with optional core UI.",
+  "author": "ThisDamnThing",
   "license": "Apache-2.0",
   "skills": [
-    "skills/dryft-software-production-brief/SKILL.md",
-    "skills/dryft-software-production-init/SKILL.md",
-    "skills/dryft-software-production-add/SKILL.md",
-    "skills/dryft-software-production-task/SKILL.md",
-    "skills/dryft-software-production-build/SKILL.md",
-    "skills/dryft-software-production-close/SKILL.md",
-    "skills/dryft-software-production-tasks/SKILL.md",
-    "skills/dryft-software-production-triage/SKILL.md",
-    "skills/dryft-software-production-constitution/SKILL.md",
-    "skills/dryft-software-production-pii/SKILL.md"
+    "skills/tdt-software-production-brief/SKILL.md",
+    "skills/tdt-software-production-init/SKILL.md",
+    "skills/tdt-software-production-add/SKILL.md",
+    "skills/tdt-software-production-task/SKILL.md",
+    "skills/tdt-software-production-build/SKILL.md",
+    "skills/tdt-software-production-close/SKILL.md",
+    "skills/tdt-software-production-tasks/SKILL.md",
+    "skills/tdt-software-production-triage/SKILL.md",
+    "skills/tdt-software-production-constitution/SKILL.md",
+    "skills/tdt-software-production-pii/SKILL.md"
   ],
   "hooks": [],
   "knowledge": [],
@@ -43,5 +43,84 @@
     "docs/usage.md",
     "docs/constitution.md",
     "docs/privacy-review.md"
-  ]
+  ],
+  "marketplace": {
+    "extension_type": "capability",
+    "categories": [
+      "development"
+    ],
+    "tags": [
+      "software",
+      "planning"
+    ],
+    "icon": null,
+    "screenshots": [],
+    "documentation_url": "https://github.com/CharlGottschalk/tdt-software-production/blob/main/README.md",
+    "support_url": "https://github.com/CharlGottschalk/tdt-software-production/issues",
+    "supported_agents": [
+      "claude",
+      "codex"
+    ],
+    "dependencies": [
+      {
+        "ref": "thisdamnthing",
+        "name": "ThisDamnThing",
+        "type": "cli",
+        "required": true,
+        "purpose": "Validate and install the stack; provide workspace commands and contracts.",
+        "setup_url": "https://usethisdamnthing.com/docs",
+        "version_constraint": null,
+        "authentication_required": false,
+        "payment_required": false
+      },
+      {
+        "ref": "python",
+        "name": "Python",
+        "type": "runtime",
+        "required": true,
+        "purpose": "Run local helper scripts and providers.",
+        "setup_url": "https://www.python.org/downloads/",
+        "version_constraint": "3.12",
+        "authentication_required": false,
+        "payment_required": false
+      },
+      {
+        "ref": "git",
+        "name": "Git",
+        "type": "cli",
+        "required": true,
+        "purpose": "Inspect source history and prepare authorized commits and releases.",
+        "setup_url": "https://git-scm.com/downloads",
+        "version_constraint": null,
+        "authentication_required": false,
+        "payment_required": false
+      }
+    ],
+    "capabilities": [
+      {
+        "type": "file_read",
+        "scope": "Linked project source, project rules, task records and workspace handoffs.",
+        "purpose": "Inspect project context and prepare requested work.",
+        "data_leaves_machine": "Context selected by the agent may be sent to the configured model provider."
+      },
+      {
+        "type": "file_write",
+        "scope": "Linked project source, project rules, task records and workspace handoffs.",
+        "purpose": "Create and update files requested by the user.",
+        "data_leaves_machine": "None."
+      },
+      {
+        "type": "process",
+        "scope": "Local shell, Git, validation tools and project helpers.",
+        "purpose": "Run authorized validation and development commands.",
+        "data_leaves_machine": "None."
+      },
+      {
+        "type": "network",
+        "scope": "Configured model provider, GitHub and user-selected external services.",
+        "purpose": "Perform agent work and explicitly authorized publication or integrations.",
+        "data_leaves_machine": "Selected context goes to the configured model provider; authorized publication sends source and release metadata to GitHub. External integrations receive only the requested content."
+      }
+    ]
+  }
 }

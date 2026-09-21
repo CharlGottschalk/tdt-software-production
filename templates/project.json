@@ -1,11 +1,11 @@
 {
   "format_version": 1,
-  "stack_id": "dryft-software-production",
-  "brief": ".dryft/brief.md",
+  "stack_id": "tdt-software-production",
+  "brief": ".tdt/brief.md",
   "brief_approval": null,
   "task_system": {
     "kind": "internal",
-    "path": ".dryft/tasks"
+    "path": ".tdt/tasks"
   },
   "commands": {}
 }

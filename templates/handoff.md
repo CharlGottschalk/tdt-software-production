@@ -13,5 +13,5 @@ Actual commands, observed results, date and limits; do not claim unrun checks.
 How to resume. Re-read status from its authority.
 
 ## Interaction and dispatch
-Retain DUI session/round/event cursor if active (never access URL/token).
+Retain UI session/round/event cursor if active (never access URL/token).
 Record scoped role dispatches and their results if used; no secrets/transcripts.

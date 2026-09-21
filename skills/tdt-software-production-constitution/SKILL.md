@@ -1,18 +1,18 @@
 ---
-name: dryft-software-production-constitution
+name: tdt-software-production-constitution
 description: Create or reuse a linked project's concise constitution and configure project-local Claude or Codex startup, using its registered project ID.
 ---
 
 Use the installed workspace and its canonical
-`.dryft/stacks/dryft-software-production/` bundle, never a host bridge directory.
+`.tdt/stacks/tdt-software-production/` bundle, never a host bridge directory.
 Read bundle `docs/workflow.md` and `docs/constitution.md`. Accept the project ID
 argument; if absent, run core `project list`, show IDs and names (source directory
 names), and ask for selection. Resolve the ID through `project inspect`; unknown
 IDs or missing/moved directories stop without project writes. Never guess a path,
-initialize a workspace in the project, or create project `.dryft/config.json`.
+initialize a workspace in the project, or create project `.tdt/config.json`.
 
-Read applicable project/parent instructions, existing `.dryft/CONSTITUTION.md`,
-`.dryft/project.json`, the referenced brief, and bounded relevant conventions.
+Read applicable project/parent instructions, existing `.tdt/CONSTITUTION.md`,
+`.tdt/project.json`, the referenced brief, and bounded relevant conventions.
 Check the brief hash against its approval record before treating it as approved.
 Keep existing instructions applicable throughout. Existing constitutions are
 project-owned: summarize and offer reuse or an explicit scoped update; do not
@@ -29,9 +29,9 @@ references. Group only unresolved choices: scope, architecture/complexity, sourc
 and artifact layout, verification, dependency/security practices, collaboration
 and preservation as relevant. Distinguish selected rules from suggestions; resolve
 policy choices with the user rather than silently making suggestions binding.
-No imported Dryft development rules, no blanket ban on tests, machine paths, role
-mappings or secrets. Aim for a short document, at most 32 KiB. Honor core DUI when
-requested, chat otherwise: reuse prior answers and shared DUI session/round/cursor
+No imported ThisDamnThing development rules, no blanket ban on tests, machine paths, role
+mappings or secrets. Aim for a short document, at most 32 KiB. Honor core UI when
+requested, chat otherwise: reuse prior answers and shared UI session/round/cursor
 handling, omit known questions, and never repeat the brief interview. On missing
 answers pause with a handoff, without installing speculative policy.
 

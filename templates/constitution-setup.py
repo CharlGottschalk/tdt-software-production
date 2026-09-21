@@ -8,10 +8,10 @@ import shlex
 import sys
 import tempfile
 
-OWNER = 'dryft.software-production.constitution.v1'
-STATE = '.dryft/constitution-setup.json'
-LOADER = '.dryft/constitution-loader.py'
-DOCUMENT = '.dryft/CONSTITUTION.md'
+OWNER = 'tdt.software-production.constitution.v1'
+STATE = '.tdt/constitution-setup.json'
+LOADER = '.tdt/constitution-loader.py'
+DOCUMENT = '.tdt/CONSTITUTION.md'
 CONFIGS = {'claude': '.claude/settings.json', 'codex': '.codex/hooks.json'}
 
 
@@ -64,11 +64,11 @@ def main():
     parser.add_argument('--apply', action='store_true', help='Apply already authorized setup; default is read-only preview')
     args = parser.parse_args()
     workspace = args.workspace.absolute()
-    config = read(workspace / '.dryft/config.json')
+    config = read(workspace / '.tdt/config.json')
     if config is None:
         raise ValueError('Not an installed workspace')
     decode(config)
-    raw = read(workspace / '.dryft/state/projects.json')
+    raw = read(workspace / '.tdt/state/projects.json')
     records = json.loads(raw) if raw is not None else []
     if not isinstance(records, list):
         raise ValueError('Invalid registry')
@@ -94,12 +94,12 @@ def main():
     if root.is_relative_to(workspace) or workspace.is_relative_to(root):
         raise ValueError('Project overlaps workspace')
     for parent in (root, *root.parents):
-        if (parent / '.dryft/config.json').exists():
+        if (parent / '.tdt/config.json').exists():
             raise ValueError('Project is inside an installed workspace')
-    project = read(root / '.dryft/project.json')
+    project = read(root / '.tdt/project.json')
     if project is not None:
         project = decode(project)
-        if project.get('format_version') != 1 or project.get('stack_id') != 'dryft-software-production':
+        if project.get('format_version') != 1 or project.get('stack_id') != 'tdt-software-production':
             raise ValueError('Incompatible project.json; preserve and reconcile')
     if not args.host:
         raise ValueError('Select host: claude, codex or both; no files changed')

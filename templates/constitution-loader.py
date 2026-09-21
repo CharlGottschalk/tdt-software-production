@@ -1,4 +1,4 @@
-"""Project-owned SessionStart context; Python 3.11+, no Dryft dependency."""
+"""Project-owned SessionStart context; Python 3.11+, no ThisDamnThing dependency."""
 import json
 from pathlib import Path
 import sys
@@ -22,18 +22,18 @@ def main():
     for directory in (cwd, *cwd.parents):
         if directory == root:
             break
-        if (directory / '.git').exists() or (directory / '.dryft/config.json').exists():
+        if (directory / '.git').exists() or (directory / '.tdt/config.json').exists():
             return
-    path = root / '.dryft/CONSTITUTION.md'
+    path = root / '.tdt/CONSTITUTION.md'
     if path.is_symlink() or not path.is_file():
-        raise ValueError('Missing or unsafe .dryft/CONSTITUTION.md')
+        raise ValueError('Missing or unsafe .tdt/CONSTITUTION.md')
     with path.open('rb') as stream:
         content = stream.read(32769)
     if len(content) > 32768 or not content.strip():
         raise ValueError('Constitution must be nonempty and at most 32 KiB')
     print(json.dumps({'hookSpecificOutput': {
         'hookEventName': 'SessionStart',
-        'additionalContext': 'Project constitution (.dryft/CONSTITUTION.md):\n' + content.decode('utf-8')}}))
+        'additionalContext': 'Project constitution (.tdt/CONSTITUTION.md):\n' + content.decode('utf-8')}}))
 
 
 if __name__ == '__main__':

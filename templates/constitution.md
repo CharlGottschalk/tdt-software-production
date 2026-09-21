@@ -12,5 +12,5 @@ unconfirmed suggestions before making them binding. This starter is not policy.
 - Collaboration: applicable review, handoff and preservation practices.
 
 Use concise concrete rules with project-relative references where useful. Omit
-machine paths, secrets and developer identities. Do not import Dryft's source
+machine paths, secrets and developer identities. Do not import ThisDamnThing's source
 repository development policies or make a no-tests rule by default.

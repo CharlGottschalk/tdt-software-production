@@ -1,30 +1,30 @@
 # Registry submission draft
 
-Draft only; submit the verified release through https://stacks.usedryft.com.
+Draft only; submit the verified release through https://stacks.usethisdamnthing.com.
 The production submission flow still needs acceptance.
 This file is not part of stack.json and does not claim a published listing.
 
-- ID: dryft-software-production
-- Description: Briefs, tasks and software delivery in linked projects, with optional core DUI.
+- ID: tdt-software-production
+- Description: Briefs, tasks and software delivery in linked projects, with optional core UI.
 - Version: 0.2.0
-- Author: Dryft
+- Author: ThisDamnThing
 - License: Apache-2.0
-- Copyright: 1one8 (Pty) Ltd
+- Copyright: Charl Gottschalk
 - Skills: all ten skills explicitly listed in stack.json; start with
-  /dryft-software-production-add or /dryft-software-production-brief
-- Source repository: https://github.com/1one8/dryft-software-production
+  /tdt-software-production-add or /tdt-software-production-brief
+- Source repository: https://github.com/CharlGottschalk/tdt-software-production
 
 Before submission, supply the actual GitHub repository and a release reference
 resolvable to a committed revision. Record only verified commits/digests. Local
 selected-content SHA256 and downloaded archive SHA256 are different values.
 
-Project constitution: `/dryft-software-production-constitution <project-id>`;
+Project constitution: `/tdt-software-production-constitution <project-id>`;
 see [guide](docs/constitution.md) for interview offers and project-local startup setup.
 
 - Supported agents: Claude and Codex; recorded local acceptance on Linux x86_64
   with Python 3.12. macOS/native Windows remain unverified; constitution setup
   currently requires POSIX.
-- Prerequisites: Dryft CLI and the chosen host agent; Git for staged privacy
+- Prerequisites: ThisDamnThing CLI and the chosen host agent; Git for staged privacy
   review. Project-specific tools/services are determined from the linked project.
 - Data and effects: reads registered project files and writes authorized project
   artifacts/source; runs approved project commands. Optional constitution setup
