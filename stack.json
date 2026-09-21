@@ -1,7 +1,7 @@
 {
   "contract_version": 1,
   "id": "tdt-software-production",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Briefs, tasks and software delivery in linked projects, with optional core UI.",
   "author": "ThisDamnThing",
   "license": "Apache-2.0",
