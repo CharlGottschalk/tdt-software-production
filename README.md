@@ -9,7 +9,7 @@ stays in your linked source repository, with questions handled in chat or [ThisD
 
 ## Release status
 
-Candidate version: **0.2.1**. Canonical source: [CharlGottschalk/tdt-software-production](https://github.com/CharlGottschalk/tdt-software-production).
+Candidate version: **0.2.2**. Canonical source: [CharlGottschalk/tdt-software-production](https://github.com/CharlGottschalk/tdt-software-production).
 The registry commands below are the planned public installation path; production
 listing and installation are still awaiting release verification.
 
@@ -48,3 +48,6 @@ See the [usage guide](docs/usage.md) for the full workflow and available skills.
 ## License
 
 Licensed under the [Apache License 2.0](LICENSE). Copyright Charl Gottschalk.
+
+This candidate requires ThisDamnThing 0.1.1 or newer for category-free marketplace
+manifests. Existing published releases keep their original requirements.

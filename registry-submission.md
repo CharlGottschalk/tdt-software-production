@@ -6,7 +6,7 @@ This file is not part of stack.json and does not claim a published listing.
 
 - ID: tdt-software-production
 - Description: Briefs, tasks and software delivery in linked projects, with optional core UI.
-- Version: 0.2.1
+- Version: 0.2.2
 - Author: ThisDamnThing
 - License: Apache-2.0
 - Copyright: Charl Gottschalk
