@@ -10,7 +10,7 @@ scope. Local config is preference, not additional permission.
 
 WORKSPACE has .tdt/config.json. PROJECT is the canonical external source path
 returned by core project list/inspect. Do not write software project artifacts in
-the [ThisDamnThing](https://usethisdamnthing.com) workspace, its ancestors, or nested workspace directories. If the two
+the [ThisDamnThing](https://usetdt.com) workspace, its ancestors, or nested workspace directories. If the two
 roots cannot be distinguished, stop for clarification. Inspect parent instructions
 before creating a new source directory. The core add-project skill alone does
 not authorize modifying source. A software brief/init/task/build request does

@@ -41,7 +41,7 @@ collision explicitly; this version has no force/migration/removal command.
 Normal exceptions attempt rollback; this is not a crash-atomic multi-file transaction.
 Avoid concurrent project setup processes.
 
-The loader is copied into the project and needs no [ThisDamnThing](https://usethisdamnthing.com) import, workspace bundle
+The loader is copied into the project and needs no [ThisDamnThing](https://usetdt.com) import, workspace bundle
 or stack source. Commands use the selected interpreter and absolute project
 loader path, POSIX-quoted. Moving a project or removing that interpreter requires
 explicitly reviewing/reconfiguring its hook entries. Native Windows setup is

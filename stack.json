@@ -1,7 +1,7 @@
 {
   "contract_version": 1,
   "id": "tdt-software-production",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Briefs, tasks and software delivery in linked projects, with optional core UI.",
   "author": "ThisDamnThing",
   "license": "Apache-2.0",
@@ -65,7 +65,7 @@
         "type": "cli",
         "required": true,
         "purpose": "Validate and install the stack; provide workspace commands and contracts.",
-        "setup_url": "https://usethisdamnthing.com/docs",
+        "setup_url": "https://usetdt.com/docs",
         "version_constraint": ">=0.1.1",
         "authentication_required": false,
         "payment_required": false

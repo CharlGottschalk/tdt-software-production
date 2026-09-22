@@ -2,10 +2,10 @@
 
 # Software Production
 
-A [ThisDamnThing](https://usethisdamnthing.com) stack for taking software projects from a brief to working code. It
+A [ThisDamnThing](https://usetdt.com) stack for taking software projects from a brief to working code. It
 provides skills and templates for project onboarding, planning, implementation
 and handoffs, plus optional project rules and pre-commit privacy review. Work
-stays in your linked source repository, with questions handled in chat or [ThisDamnThing](https://usethisdamnthing.com) UI.
+stays in your linked source repository, with questions handled in chat or [ThisDamnThing](https://usetdt.com) UI.
 
 ## Release status
 
@@ -20,7 +20,7 @@ source edits, Git operations and external services are disclosed in the usage gu
 
 ## Install
 
-With [ThisDamnThing](https://usethisdamnthing.com) installed and a workspace initialized, ask your agent to install
+With [ThisDamnThing](https://usetdt.com) installed and a workspace initialized, ask your agent to install
 `tdt-software-production` using `/tdt-install-stack` (Claude) or
 `$tdt-install-stack` (Codex). The skill finds the stack in the marketplace,
 shows the selected release for review and installs it from the registry.
@@ -38,7 +38,7 @@ tdt --workspace ./workspace stack install tdt-software-production
 
 Review the inspected release and any prerequisites before running the install command.
 Restart Claude or Codex in your
-[ThisDamnThing](https://usethisdamnthing.com) workspace to load the skills, then start with
+[ThisDamnThing](https://usetdt.com) workspace to load the skills, then start with
 `/tdt-software-production-add` for existing source or
 `/tdt-software-production-brief` for a new project. In Codex, use `$` instead
 of `/`, or select the skill from the picker.
