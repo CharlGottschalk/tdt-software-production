@@ -5,12 +5,12 @@ the stack source directories. Paths are relative to that directory; adjust them
 to your layout. Commands without `--workspace` run from the workspace root.
 
 Software Production adds project onboarding, briefs, planning, implementation,
-project rules and privacy review to your [ThisDamnThing](https://usethisdamnthing.com) workspace. Your source stays in
-its own directory; [ThisDamnThing](https://usethisdamnthing.com) stores the context needed to continue work across sessions.
+project rules and privacy review to your [ThisDamnThing](https://usetdt.com) workspace. Your source stays in
+its own directory; [ThisDamnThing](https://usetdt.com) stores the context needed to continue work across sessions.
 
 ## Install and start
 
-Install [ThisDamnThing](https://usethisdamnthing.com) and initialize a workspace first. In your workspace's agent session,
+Install [ThisDamnThing](https://usetdt.com) and initialize a workspace first. In your workspace's agent session,
 invoke `/tdt-install-stack` in Claude or `$tdt-install-stack` in Codex and ask
 to install `tdt-software-production`. The skill searches the marketplace,
 inspects the selected release and guides installation after review.
@@ -27,14 +27,14 @@ tdt --workspace ./workspace stack list
 Replace the workspace path with your own. Review the source, selected version,
 prerequisites and any warnings from inspection before installing. Add
 `--version VERSION` to both inspection and installation to select a particular
-release. [ThisDamnThing](https://usethisdamnthing.com) downloads and validates the stack through the registry; no clone
+release. [ThisDamnThing](https://usetdt.com) downloads and validates the stack through the registry; no clone
 or manual download is needed. Registry installation requires network access.
 
 The stack installs skills, templates and guides. It registers no automatic hooks
 and imports no brain knowledge. Optional project constitution setup creates
 project-local startup hooks only when requested or accepted.
 
-Restart Claude or Codex in your [ThisDamnThing](https://usethisdamnthing.com) workspace after installation. Invoke skills
+Restart Claude or Codex in your [ThisDamnThing](https://usetdt.com) workspace after installation. Invoke skills
 with `/tdt-software-production-<action>` in Claude, or
 `$tdt-software-production-<action>` in Codex. You can also use the host's skill
 picker. Supply the project name or source path when needed to identify the project.
@@ -46,7 +46,7 @@ path. The agent links the project, explains its structure and setup, and offers
 onboarding and a brief. Linking alone leaves source files unchanged.
 
 For a new project, invoke `/tdt-software-production-brief` and choose a source
-directory outside your [ThisDamnThing](https://usethisdamnthing.com) workspace. Describe the problem, intended users,
+directory outside your [ThisDamnThing](https://usetdt.com) workspace. Describe the problem, intended users,
 scope, constraints and what successful delivery looks like. The agent uses what
 you have already supplied and asks only for missing information.
 
@@ -84,7 +84,7 @@ Each action uses the `tdt-software-production-` prefix. For optional setup and
 review, see [project constitution](constitution.md) and
 [privacy review](privacy-review.md).
 
-## Answer questions in chat or [ThisDamnThing](https://usethisdamnthing.com) UI
+## Answer questions in chat or [ThisDamnThing](https://usetdt.com) UI
 
 Say “use ui” to answer missing-input questions in a local browser page, or answer
 in chat. A complete request can proceed without an interview. Submit the page to
