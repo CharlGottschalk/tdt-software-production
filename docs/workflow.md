@@ -29,6 +29,10 @@ unrelated existing .tdt/ silently. The constitution helper checks ownership and 
 
 ## Project artifact contract
 
+Project rules live at PROJECT/.tdt/CONSTITUTION.md. Check that resolved path before
+asserting absence or offering creation; WORKSPACE constitution policy describes
+the workspace only. Report unreadable or unresolved paths as lookup failures.
+
 Tracked PROJECT/.tdt/project.json is a JSON object, format_version 1 and stack_id
 "tdt-software-production". It selects brief (.tdt/brief.md by default),
 brief_approval (null, or approved_sha256 plus source description of actual user
@@ -60,6 +64,12 @@ step, done has observed completion, cancelled retains reason/history. Triage can
 resolve draft/blocked to ready; resume interrupted doing only after reading its
 handoff. Reopening done/cancelled requires user intent. Keep status and history
 in the authority, handoff elsewhere.
+
+After implementation or verification, reconcile current progress/acceptance
+statements in the authority with the observed results; replace obsolete claims
+such as “No implementation or verification yet.” Preserve acceptance criteria
+and dated history, distinguish passed checks from remaining gaps, and retain
+doing until authorized closure.
 
 For external tasks, task_system specifies kind external, provider, project_ref
 and status_map for all six lifecycle states using provider-specific values.
@@ -119,9 +129,16 @@ records, not approved brain knowledge. The project overview holds project refere
 brief reference, current task reference (or none), key decisions and next steps.
 Per-task handoffs hold authoritative ID/URL, decisions, changed source paths,
 verification actually observed, blockers and next step. Preserve useful prior
-history when updating. Set the pointer when starting build; update before pause
-and completion. Clear it on closure only when it names that task. Do not maintain
+history when updating. Keep one unambiguous active current-task pointer: replace
+its value when starting build rather than appending a competing Current task
+line. Keep useful previous task context explicitly under history/prior handoff.
+Update before pause and completion. Clear it on closure only when it names that task. Do not maintain
 an external status list here. Status is reread from the task system.
+
+Read the canonical handoff path before claiming it is missing. For external tasks,
+resolve the safe local key from the project overview/task references. WORK.md and
+work/ are not the handoff store; permission or resolution failures do not prove
+absence.
 
 Do not copy source, transcripts, secrets or entire remote task bodies into the
 workspace. Durable knowledge can be submitted as a concise sourced candidate via

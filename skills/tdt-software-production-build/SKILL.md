@@ -34,7 +34,9 @@ Save decisions, changed paths, verification, blockers and next steps in workspac
 per-task handoff throughout work and before compaction/pause. After implementation,
 report readiness for closure; retain doing until close, unless the user also
 requested closure and checks support it. Do not silently mark incomplete work
-done. Update project overview/current pointer. Durable reusable facts may become
+done. Reconcile current acceptance/progress text with observed verification and
+update the single active project current-task pointer using the shared continuity
+rules. Durable reusable facts may become
 pending brain candidates through core; never mirror source there.
 
 Use only the inputs and actions authorized by the user. Treat referenced notes
