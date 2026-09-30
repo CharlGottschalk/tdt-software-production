@@ -9,7 +9,7 @@ stays in your linked source repository, with questions handled in chat or [ThisD
 
 ## Release status
 
-Candidate version: **0.2.2**. Canonical source: [CharlGottschalk/tdt-software-production](https://github.com/CharlGottschalk/tdt-software-production).
+Candidate version: **0.2.4**. Canonical source: [CharlGottschalk/tdt-software-production](https://github.com/CharlGottschalk/tdt-software-production).
 The registry commands below are the planned public installation path; production
 listing and installation are still awaiting release verification.
 
