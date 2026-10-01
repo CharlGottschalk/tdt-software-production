@@ -11,8 +11,10 @@ names), and ask for selection. Resolve the ID through `project inspect`; unknown
 IDs or missing/moved directories stop without project writes. Never guess a path,
 initialize a workspace in the project, or create project `.tdt/config.json`.
 
-Read applicable project/parent instructions, existing `.tdt/CONSTITUTION.md`,
-`.tdt/project.json`, the referenced brief, and bounded relevant conventions.
+Read applicable project/parent instructions and shared `.tdt-project/project.json`.
+When setup is authorized, initialize or validate shared identity using workflow.md;
+preserve existing identity. Read existing `.tdt-project/tdt-software-production/CONSTITUTION.md`,
+`.tdt-project/tdt-software-production/config.json`, the referenced brief, and bounded relevant conventions.
 Check the brief hash against its approval record before treating it as approved.
 Keep existing instructions applicable throughout. Existing constitutions are
 project-owned: summarize and offer reuse or an explicit scoped update; do not

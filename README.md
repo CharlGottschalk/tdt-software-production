@@ -9,7 +9,11 @@ stays in your linked source repository, with questions handled in chat or [ThisD
 
 ## Release status
 
-Candidate version: **0.2.4**. Canonical source: [CharlGottschalk/tdt-software-production](https://github.com/CharlGottschalk/tdt-software-production).
+Candidate version: **0.3.0**. Canonical source: [CharlGottschalk/tdt-software-production](https://github.com/CharlGottschalk/tdt-software-production).
+This is a breaking project-layout change: shared identity lives in
+`.tdt-project/project.json`, and this stack's artifacts live under
+`.tdt-project/tdt-software-production/`. `.tdt/` is reserved for workspace
+harnesses. There is no legacy lookup or migration.
 The registry commands below are the planned public installation path; production
 listing and installation are still awaiting release verification.
 

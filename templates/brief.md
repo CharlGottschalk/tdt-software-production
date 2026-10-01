@@ -20,4 +20,4 @@ Technical, time, environment and delivery constraints.
 ## Evidence and open questions
 Exact source references; distinguish facts, assumptions and missing decisions.
 
-Approval is recorded for these exact bytes in project.json after user review.
+Approval is recorded for these exact bytes in config.json after user review.

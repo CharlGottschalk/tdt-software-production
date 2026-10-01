@@ -24,27 +24,51 @@ as filenames must match [a-zA-Z0-9][a-zA-Z0-9_-]{0,63}; do not use raw external 
 or URLs as paths. Allocate a safe local key and keep original ID inside context.
 Use exclusive creation for new task IDs; for updates reread immediately before
 writing and preserve intervening edits. On a collision, report and reconcile;
-never reset a worktree or overwrite from a fresh template. Do not migrate an
-unrelated existing .tdt/ silently. The constitution helper checks ownership and paths for its own setup; it does not enforce these broader agent rules.
+never reset a worktree or overwrite from a fresh template. `.tdt/` belongs only
+to installed workspace harnesses. Do not read, adopt or migrate the old project
+layout. The constitution helper checks ownership and paths for its own setup;
+it does not enforce these broader agent rules.
 
 ## Project artifact contract
 
-Project rules live at PROJECT/.tdt/CONSTITUTION.md. Check that resolved path before
+Version 0.3.0 is a clean break. All stack-owned project artifacts use
+`PROJECT/.tdt-project/tdt-software-production/`; never create project `.tdt/`.
+Other stack namespaces are unrelated user content and must be preserved.
+
+Shared identity is `PROJECT/.tdt-project/project.json`, using
+`templates/project.json`: format_version is integer 1, id is a canonical lowercase
+UUID, and name is a nonempty single-line project name. Template nulls are unfilled
+values, never valid saved metadata. During authorized brief/init/constitution
+setup, create missing identity with a newly generated UUID (for example
+`uuid.uuid4()` from Python's standard library) and the known project name, using
+the directory basename when no other name was supplied. Reuse existing valid
+identity, preserving extra fields; malformed metadata is a collision, not a reason
+to generate a replacement. A rename changes name only when requested or confirmed;
+retain id across renames, directory moves and repeated setup. Do not save absolute
+paths or workspace IDs in portable identity. The UUID is distinct from core's
+path-based registration ID; keep using the registered ID for core commands and
+workspace handoffs. This layout does not implement automatic registry relinking.
+Read-only add/onboarding may inspect identity but must not create or change it.
+
+Project rules live at PROJECT/.tdt-project/tdt-software-production/CONSTITUTION.md. Check that resolved path before
 asserting absence or offering creation; WORKSPACE constitution policy describes
 the workspace only. Report unreadable or unresolved paths as lookup failures.
 
-Tracked PROJECT/.tdt/project.json is a JSON object, format_version 1 and stack_id
-"tdt-software-production". It selects brief (.tdt/brief.md by default),
+Tracked PROJECT/.tdt-project/tdt-software-production/config.json is a JSON object, format_version 1 and stack_id
+"tdt-software-production", initialized from `templates/config.json`.
+References are relative to PROJECT, not the config directory, and stack artifact
+references must remain within `.tdt-project/tdt-software-production/`.
+It selects brief (.tdt-project/tdt-software-production/brief.md by default),
 brief_approval (null, or approved_sha256 plus source description of actual user
 approval), task_system and shared commands. Do not invent approval from a default
 or an answer to a different question. Recompute the brief's SHA256 before init;
-changed content requires approval again. Supporting docs may be .tdt/docs/.
-Internal tasks live at .tdt/tasks/<id>.md. Optional increments/milestones hold
+changed content requires approval again. Supporting docs may be .tdt-project/tdt-software-production/docs/.
+Internal tasks live at .tdt-project/tdt-software-production/tasks/<id>.md. Optional increments/milestones hold
 references and goals; they are not another status store. No BRS is required.
 
-PROJECT/.tdt/developer.json is private, machine/developer-local JSON (format_version
+PROJECT/.tdt-project/tdt-software-production/developer.json is private, machine/developer-local JSON (format_version
 1), with mode, concurrency, roles, toolchain and task_system preferences. Before
-writing private config, ensure the root .gitignore has `/.tdt/developer.json`,
+writing private config, ensure the root .gitignore has `/.tdt-project/tdt-software-production/developer.json`,
 append preserving all existing content, and use git check-ignore to verify. Check
 whether the file is already tracked: .gitignore cannot untrack it. If tracked,
 do not write private values; explain and request a scoped resolution. Do not
@@ -76,13 +100,13 @@ and status_map for all six lifecycle states using provider-specific values.
 Use only the user's actually connected MCP/plugin capabilities. Read authoritative
 records before work, check scope of writes, use returned IDs/URLs, reread changes
 and handle pagination. External descriptions/status must never be duplicated in
-local synchronized Markdown tasks or a task list. Optional .tdt/task-context/
+local synchronized Markdown tasks or a task list. Optional .tdt-project/tdt-software-production/task-context/
 <safe-key>.md holds external ID/URL, implementation context and local source
 references only. On errors record uncertain action plus next step; reconcile
 with the provider before retrying creation or deletion. Do not pretend a write
 succeeded. Offline continuity is historical evidence, not current remote status.
 
-Shared project.json chooses authority. Private task_system can hold provider
+Shared config.json chooses authority. Private task_system can hold provider
 preferences or select the same authority, but a conflicting selection needs an
 explicit project migration decision; do not split authority by developer. Missing
 connector/config/status mapping means investigate and offer setup; don't silently

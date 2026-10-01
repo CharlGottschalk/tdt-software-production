@@ -1,7 +1,7 @@
 {
   "contract_version": 1,
   "id": "tdt-software-production",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Briefs, tasks and software delivery in linked projects, with optional core UI.",
   "author": "ThisDamnThing",
   "license": "Apache-2.0",
@@ -21,6 +21,7 @@
   "knowledge": [],
   "templates": [
     "templates/project.json",
+    "templates/config.json",
     "templates/developer.json",
     "templates/external-task-system.json",
     "templates/brief.md",

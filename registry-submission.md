@@ -6,7 +6,10 @@ This file is not part of stack.json and does not claim a published listing.
 
 - ID: tdt-software-production
 - Description: Briefs, tasks and software delivery in linked projects, with optional core UI.
-- Version: 0.2.4
+- Version: 0.3.0
+- Breaking change: project artifacts use `.tdt-project/tdt-software-production/`,
+  with shared identity in `.tdt-project/project.json`; no legacy layout support.
+  Keep existing marketplace versions available until this replacement is published.
 - Author: ThisDamnThing
 - License: Apache-2.0
 - Copyright: Charl Gottschalk

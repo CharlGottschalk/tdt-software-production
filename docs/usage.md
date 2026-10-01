@@ -94,9 +94,14 @@ local until explicitly cleaned up.
 
 ## Files and preferences
 
-Shared project configuration lives in `.tdt/project.json` inside the source
+Since 0.3.0, `.tdt/` is reserved for installed workspace harnesses; this stack
+does not read or migrate the old project layout. Shared project name and stable
+UUID live in `.tdt-project/project.json`. Setup preserves that UUID across renames
+and moves; core registration and workspace handoff IDs remain path-based.
+
+Shared project configuration lives in `.tdt-project/tdt-software-production/config.json` inside the source
 repository, alongside the brief and any internal work records. These files are
-intended for version control. Private `.tdt/developer.json` holds local tool,
+intended for version control. Private `.tdt-project/tdt-software-production/developer.json` holds local tool,
 model and workflow preferences; it must be ignored and contain no credentials.
 The default is direct, manual work with no predefined agent roles.
 

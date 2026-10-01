@@ -18,7 +18,7 @@ dependencies and verification from evidence; use task interview only for gaps.
 A task request authorizes creation; do not require a second blanket confirmation.
 
 Internal: allocate a new safe ID by inspecting existing IDs (e.g. 001), create
-`.tdt/tasks/ID.md` exclusively, never overwrite or renumber an existing task.
+`.tdt-project/tdt-software-production/tasks/ID.md` exclusively, never overwrite or renumber an existing task.
 Use the task template. Set ready only when actionable, authorized in scope and
 unblocked, otherwise draft/blocked with the missing information recorded.
 External: create through the selected connected provider if authorized; record

@@ -1,11 +1,5 @@
 {
   "format_version": 1,
-  "stack_id": "tdt-software-production",
-  "brief": ".tdt/brief.md",
-  "brief_approval": null,
-  "task_system": {
-    "kind": "internal",
-    "path": ".tdt/tasks"
-  },
-  "commands": {}
+  "id": null,
+  "name": null
 }

@@ -14,7 +14,7 @@ def main():
     cwd = event.get('cwd')
     if not isinstance(cwd, str) or not Path(cwd).is_absolute():
         raise ValueError('Expected absolute session cwd')
-    root = Path(__file__).resolve().parents[1]
+    root = Path(__file__).resolve().parents[2]
     cwd = Path(cwd).resolve(strict=True)
     if not cwd.is_relative_to(root):
         return
@@ -22,18 +22,19 @@ def main():
     for directory in (cwd, *cwd.parents):
         if directory == root:
             break
-        if (directory / '.git').exists() or (directory / '.tdt/config.json').exists():
+        if ((directory / '.git').exists() or (directory / '.tdt').exists()
+                or (directory / '.tdt-project/project.json').exists()):
             return
-    path = root / '.tdt/CONSTITUTION.md'
+    path = root / '.tdt-project/tdt-software-production/CONSTITUTION.md'
     if path.is_symlink() or not path.is_file():
-        raise ValueError('Missing or unsafe .tdt/CONSTITUTION.md')
+        raise ValueError('Missing or unsafe .tdt-project/tdt-software-production/CONSTITUTION.md')
     with path.open('rb') as stream:
         content = stream.read(32769)
     if len(content) > 32768 or not content.strip():
         raise ValueError('Constitution must be nonempty and at most 32 KiB')
     print(json.dumps({'hookSpecificOutput': {
         'hookEventName': 'SessionStart',
-        'additionalContext': 'Project constitution (.tdt/CONSTITUTION.md):\n' + content.decode('utf-8')}}))
+        'additionalContext': 'Project constitution (.tdt-project/tdt-software-production/CONSTITUTION.md):\n' + content.decode('utf-8')}}))
 
 
 if __name__ == '__main__':

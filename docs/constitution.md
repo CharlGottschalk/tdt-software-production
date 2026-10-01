@@ -1,7 +1,7 @@
 # Project constitution
 
 `/tdt-software-production-constitution <project-id>` creates a short,
-project-specific `.tdt/CONSTITUTION.md` and local SessionStart setup. Missing ID
+project-specific `.tdt-project/tdt-software-production/CONSTITUTION.md` and local SessionStart setup. Missing ID
 prompts with registered IDs/names; unknown or unavailable projects stop. Add,
 brief and init offer this only when absent; accepting authorizes separate project
 setup, declining continues the original workflow without constitution writes.
@@ -28,10 +28,14 @@ authorized content update, add `--expected-sha256 HASH`, the full SHA256 of the
 reviewed previous constitution. Intervening document edits invalidate this value.
 The default previews without writes; `--apply` performs already authorized work.
 Do not infer authorization from the flag or invent an extra approval ceremony.
-Read project instructions and project.json before using the helper.
+Read project instructions, `.tdt-project/project.json` and the stack's
+`.tdt-project/tdt-software-production/config.json` before using the helper.
+The skill creates missing shared identity during authorized setup; the helper
+validates existing identity without changing it. No legacy project `.tdt/`
+lookup or migration is supported.
 
-Generated files: `.tdt/CONSTITUTION.md`, `.tdt/constitution-loader.py`,
-`.tdt/constitution-setup.json`, and the selected `.claude/settings.json` and/or
+Generated files: `.tdt-project/tdt-software-production/CONSTITUTION.md`, `.tdt-project/tdt-software-production/constitution-loader.py`,
+`.tdt-project/tdt-software-production/constitution-setup.json`, and the selected `.claude/settings.json` and/or
 `.codex/hooks.json`. The ownership record covers only the loader and exact hook
 entries, never the constitution contents or unrelated provider keys. Existing
 hooks and permissions survive. Edited/missing owned entries, duplicate hooks,
@@ -52,7 +56,8 @@ compatible host environment.
 
 The loader requires a SessionStart JSON payload with absolute `cwd`; it reads at
 most 64 KiB of input and 32 KiB of constitution. Outside-project events and nested
-Git projects/workspaces emit nothing. Missing/unsafe/oversize constitution files
+Git projects/workspaces or directories with `.tdt-project/project.json` emit
+nothing. Missing/unsafe/oversize constitution files
 produce stderr and a nonzero exit, not substitute policy. Normal project
 subdirectories are supported. A project with no detectable nested boundary is
 considered part of its containing project.
