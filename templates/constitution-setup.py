@@ -7,11 +7,12 @@ from pathlib import Path
 import shlex
 import sys
 import tempfile
+from uuid import UUID
 
 OWNER = 'tdt.software-production.constitution.v1'
-STATE = '.tdt/constitution-setup.json'
-LOADER = '.tdt/constitution-loader.py'
-DOCUMENT = '.tdt/CONSTITUTION.md'
+STATE = '.tdt-project/tdt-software-production/constitution-setup.json'
+LOADER = '.tdt-project/tdt-software-production/constitution-loader.py'
+DOCUMENT = '.tdt-project/tdt-software-production/CONSTITUTION.md'
 CONFIGS = {'claude': '.claude/settings.json', 'codex': '.codex/hooks.json'}
 
 
@@ -94,13 +95,22 @@ def main():
     if root.is_relative_to(workspace) or workspace.is_relative_to(root):
         raise ValueError('Project overlaps workspace')
     for parent in (root, *root.parents):
-        if (parent / '.tdt/config.json').exists():
-            raise ValueError('Project is inside an installed workspace')
-    project = read(root / '.tdt/project.json')
+        if (parent / '.tdt').exists() or (parent / '.tdt').is_symlink():
+            raise ValueError('.tdt is reserved for installed workspace harnesses')
+    identity = read(root / '.tdt-project/project.json')
+    if identity is not None:
+        identity = decode(identity)
+        project_uuid, name = identity.get('id'), identity.get('name')
+        if (type(identity.get('format_version')) is not int or identity['format_version'] != 1
+                or not isinstance(project_uuid, str) or str(UUID(project_uuid)) != project_uuid
+                or not isinstance(name, str) or not name.strip() or name.splitlines() != [name]):
+            raise ValueError('Incompatible project identity; preserve and reconcile')
+    project = read(root / '.tdt-project/tdt-software-production/config.json')
     if project is not None:
         project = decode(project)
-        if project.get('format_version') != 1 or project.get('stack_id') != 'tdt-software-production':
-            raise ValueError('Incompatible project.json; preserve and reconcile')
+        if (type(project.get('format_version')) is not int or project['format_version'] != 1
+                or project.get('stack_id') != 'tdt-software-production'):
+            raise ValueError('Incompatible stack config.json; preserve and reconcile')
     if not args.host:
         raise ValueError('Select host: claude, codex or both; no files changed')
     if os.name != 'posix':
