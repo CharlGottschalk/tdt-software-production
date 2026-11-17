@@ -76,6 +76,54 @@ changes, history rewriting or source removal. Preserve the scope of the user’s
    unverified. On discrepancies pause further publication and report masked
    locations; do not undo the commit automatically.
 
+## Non-interactive runs
+
+An orchestrator may run build or close headless and mark the request
+non-interactive. That mark changes only how findings are returned, never what
+is authorized. When findings or gaps remain, the skill must not ask and must
+not commit:
+
+- Leave the reviewed change staged exactly as reviewed.
+- Write the complete proposed message, byte for byte, to the private file the
+  request supplies. It must resolve inside workspace continuity's `local/` child
+  (`WORKSPACE/.tdt/state/software-production/<registered-project-id>/local/`),
+  with no symlinks or path escapes; otherwise report incomplete and write nothing.
+- Report sanitized JSON only: `snapshot`, `message_sha256`, `status`, `gaps`,
+  and per finding `id`, `category`, `path_ref` (the 12-hex path reference) or
+  `message`, and `line`. No excerpts, raw paths or values.
+- Keep the task `doing` (close does not advance status) and record "paused on
+  privacy findings" with the snapshot in the per-task handoff.
+
+Without the mark, behaviour is the interactive procedure above.
+
+## Commit-only resume
+
+A follow-up request may carry the user's decisions to commit an already reviewed,
+still staged snapshot. It must name the message file, the `snapshot` and
+`message_sha256` the decisions were made for, and each accepted finding `id`.
+The run commits nothing else and makes no source or staging changes:
+
+1. Rerun the helper with the same `--repo` and `--message-file`.
+2. Commit only if `snapshot` and `message_sha256` match the request, there are
+   no gaps, every reported finding ID is accepted in the request, and no
+   accepted ID is missing from the report. Semantic findings recorded in the
+   handoff must be likewise accepted and unchanged.
+3. Commit with `['git', '-C', repo, 'commit', '--cleanup=verbatim', '-F',
+   message_file]`, then verify as in step 8.
+4. On any difference, do not commit; report the new findings non-interactively.
+
+The helper's `snapshot` already binds the staged index entries (the tree that
+would be committed), HEAD and the message bytes.
+
+## Decisions relayed by a tool
+
+Decisions passed in the request count as the user's explicit acceptance, and as
+the "current conversation" for step 6, only when the user made them
+interactively for those exact finding IDs and bytes and the tool only passes
+them on. The tool does not accept on the user's behalf. There are still no
+standing, category-wide or inferred approvals; a decision the tool generated or
+defaulted is no decision.
+
 This is agent workflow guidance, not guaranteed manual-commit interception. No
 scan proves absence of private information. Project constitutions should
 reference this boundary. A release needs a separate review of its complete contents;

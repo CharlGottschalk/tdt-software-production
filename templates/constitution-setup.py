@@ -134,8 +134,7 @@ def main():
         raise ValueError('Unowned loader collision')
     if prior is not None and (current_loader is None or sha(current_loader) != state['loader_sha256']):
         raise ValueError('Owned loader edited or missing; preserve and reconcile')
-    if prior is not None and current_loader != loader:
-        raise ValueError('Loader version changed; explicit migration required')
+    # An owned, unedited loader is upgraded to the bundled version (listed in preview).
     document = snapshot(DOCUMENT)
     if args.content:
         candidate = read(args.content.absolute(), 32768)

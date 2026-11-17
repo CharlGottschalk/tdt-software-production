@@ -54,6 +54,11 @@ project artifacts. Record outcome and real verification limits in workspace
 project continuity. Uninstall preserves this setup; removal needs a separate
 explicit project action.
 
+The loader appends one managed line when `graphify-out/` exists: query the graph
+first via the graphify CLI. Never run `graphify install` or let graphify write
+CLAUDE.md/AGENTS.md. Setup upgrades an owned, unedited loader to the bundled
+version; preview lists it as a change.
+
 If a project commit is separately authorized, use the shared workflow's privacy
 review before committing generated setup. Review actual staged configuration and
 message, including machine-specific hook paths; setup approval is not approval

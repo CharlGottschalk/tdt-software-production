@@ -18,3 +18,7 @@ never the provider bridge, `.dev/`, a source checkout or global skill directory.
 The template is a standalone explicitly invoked read-only helper, not a hook;
 do not copy it into the external project. Review alone does not authorize any
 external source modification, staging, commit or push.
+
+For non-interactive runs and commit-only resume (orchestrators passing on the
+user's decisions), follow those sections of privacy-review.md exactly. Resume
+commits only within an already authorized commit and only when the rerun matches.

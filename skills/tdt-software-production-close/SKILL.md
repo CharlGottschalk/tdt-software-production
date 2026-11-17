@@ -46,3 +46,7 @@ Before any authorized agent-driven commit, invoke
 `docs/privacy-review.md` exact staged snapshot/message boundary. Findings or
 incomplete coverage pause the commit; explicit scoped decisions persist for
 unchanged content. Scanning itself grants no commit/push or source-edit authority.
+When the request marks the run non-interactive, follow privacy-review.md's
+non-interactive section: leave the change staged, write the message file, report
+sanitized findings, do not advance task status and record "paused on privacy
+findings" in the handoff. A request carrying decisions uses its commit-only resume.
