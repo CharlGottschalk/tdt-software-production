@@ -145,7 +145,9 @@ def review(repo, message):
                 gaps.append('message changed during review')
     return {'status': 'incomplete' if gaps else 'findings' if findings else 'pass',
             'scope': 'bounded pattern evidence; semantic review still required',
-            'snapshot': snapshot, 'coverage': coverage, 'findings': findings, 'gaps': gaps,
+            'snapshot': snapshot,
+            'message_sha256': sha(message_data) if message_data is not None else None,
+            'coverage': coverage, 'findings': findings, 'gaps': gaps,
             'limits': '1 MiB/blob/message; 8 MiB combined old/new blobs; 4 MiB metadata; 20s/Git command. No history/release review. Patterns cannot prove absence of PII.'}
 
 

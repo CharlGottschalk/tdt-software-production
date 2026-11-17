@@ -52,6 +52,12 @@ explicitly reviewing/reconfiguring its hook entries. Native Windows setup is
 not supported by this helper. It generates POSIX shell commands and requires a
 compatible host environment.
 
+When the project has `graphify-out/`, the loader appends one TDT-managed line
+telling agents to query the project graph first with the graphify CLI. graphify
+never writes CLAUDE.md or AGENTS.md here; `graphify install` is not run. Rerunning
+setup upgrades an owned loader whose bytes still match its recorded SHA256 to the
+bundled version; an edited loader still refuses.
+
 ## Check startup loading
 
 The loader requires a SessionStart JSON payload with absolute `cwd`; it reads at

@@ -22,6 +22,8 @@ preserve existing identity. Use `templates/project.json` for identity and
 `templates/config.json` for `.tdt-project/tdt-software-production/config.json`.
 For existing source, inspect the existing brief first: continue it, do not replace
 it from a template. Collect evidence from relevant docs/manifests with sources.
+For existing source without `graphify-out/graph.json`, offer core
+`/tdt-project-graph` once, as in the add skill; building stays the user's choice.
 
 Draft `.tdt-project/tdt-software-production/brief.md` from the brief template: problem, users, scope (in/out),
 constraints and observable acceptance criteria. Separate evidence, assumptions

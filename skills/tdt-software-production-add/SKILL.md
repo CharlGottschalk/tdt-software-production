@@ -28,6 +28,10 @@ Offer configuration for roles/model/effort, mode, concurrency, toolchain and tas
 system using the private developer template. Read existing configuration first;
 never silently change mappings or enable unattended work. The config template
 is human/direct by default; gather real tool choices before delegated work.
+When `graphify-out/graph.json` is absent, offer core `/tdt-project-graph`: it
+builds a file graph agents query instead of scanning the codebase, saving
+tokens; the code pass uses no LLM, the docs pass costs tokens and is asked
+separately. Building stays the user's choice; declining changes nothing.
 
 Inspect shared `.tdt-project/project.json` for the project name and portable ID,
 then `.tdt-project/tdt-software-production/config.json` and its brief reference.
