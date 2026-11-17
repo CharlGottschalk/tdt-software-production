@@ -92,6 +92,17 @@
         "version_constraint": null,
         "authentication_required": false,
         "payment_required": false
+      },
+      {
+        "ref": "graphify",
+        "name": "graphify",
+        "type": "cli",
+        "required": false,
+        "purpose": "Optional. When a project graph exists, skills query it with the graphify CLI before broad file searches. Graphs are built only on request by the core /tdt-project-graph skill. Community integration, not affiliated with or endorsed by Graphify Labs.",
+        "setup_url": "https://github.com/Graphify-Labs/graphify",
+        "version_constraint": ">=0.9.107",
+        "authentication_required": false,
+        "payment_required": false
       }
     ],
     "capabilities": [
@@ -109,7 +120,7 @@
       },
       {
         "type": "process",
-        "scope": "Local shell, Git, validation tools and project helpers.",
+        "scope": "Local shell, Git, validation tools, project helpers and, when a project graph exists, the graphify CLI.",
         "purpose": "Run authorized validation and development commands.",
         "data_leaves_machine": "None."
       },
