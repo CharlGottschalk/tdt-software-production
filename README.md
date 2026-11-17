@@ -9,11 +9,15 @@ stays in your linked source repository, with questions handled in chat or [ThisD
 
 ## Release status
 
-Candidate version: **0.4.0**. Canonical source: [CharlGottschalk/tdt-software-production](https://github.com/CharlGottschalk/tdt-software-production).
-This is a breaking project-layout change: shared identity lives in
-`.tdt-project/project.json`, and this stack's artifacts live under
-`.tdt-project/tdt-software-production/`. `.tdt/` is reserved for workspace
-harnesses. There is no legacy lookup or migration.
+Version: **0.4.0**. Canonical source: [CharlGottschalk/tdt-software-production](https://github.com/CharlGottschalk/tdt-software-production).
+0.4.0 adds project graph guidance (skills query an existing
+[graphify](https://github.com/Graphify-Labs/graphify) graph before broad searches;
+community integration, not affiliated with or endorsed by Graphify Labs) and a
+non-interactive privacy review with commit-only resume for orchestrators. It is
+compatible with the 0.3.0 layout: shared identity lives in
+`.tdt-project/project.json`, this stack's artifacts live under
+`.tdt-project/tdt-software-production/`, and `.tdt/` is reserved for workspace
+harnesses. Rerunning constitution setup upgrades an unedited loader.
 The registry commands below are the planned public installation path; production
 listing and installation are still awaiting release verification.
 
